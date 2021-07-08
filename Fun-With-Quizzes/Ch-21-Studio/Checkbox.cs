@@ -8,10 +8,12 @@ namespace Ch_21_Studio
 {
     class Checkbox : Question
     {
+        public Dictionary<string, string> PossibleAnswers { get; set; }
         public Checkbox(string question)
             : base(question)
         {
-            QuestionBody = question;
+            PromptUserInput();
+            ProvideFeedback();
         }
     }
 }

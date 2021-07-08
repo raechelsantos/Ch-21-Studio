@@ -14,14 +14,15 @@ namespace Ch_21_Studio
         {
             CorrectAnswer = answer;
             PromptUserInput();
+            ProvideFeedback();
         }
         // "T/F: Rae is pretty.", true
         // "T/F: Prof. Cornelius is a cat.", false
 
-        public override string PromptUserInput()
+        public override void PromptUserInput()
         {
             Console.WriteLine(QuestionBody);
-            return base.PromptUserInput();
+            UserAnswer = Console.ReadLine();
         }
 
         public override bool VerifyUserAnswer()

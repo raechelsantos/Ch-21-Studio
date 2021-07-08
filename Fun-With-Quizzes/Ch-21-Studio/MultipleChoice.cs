@@ -8,8 +8,8 @@ namespace Ch_21_Studio
 {
     class MultipleChoice : Question
     {
-        public string CorrectAnswer { get; set; }
         public string[] PossibleAnswers { get; set; }
+        public string CorrectAnswer { get; set; }
 
         public MultipleChoice(string question, string[] possibleAnswers, string answer)
             : base(question)
@@ -17,17 +17,18 @@ namespace Ch_21_Studio
             PossibleAnswers = possibleAnswers;
             CorrectAnswer = answer;
             PromptUserInput();
+            ProvideFeedback();
         }
 
-        public override string PromptUserInput()
+        public override void PromptUserInput()
         {
             Console.WriteLine(QuestionBody);
             for (int i = 0; i < PossibleAnswers.Length; i++)
             {
                 Console.WriteLine(PossibleAnswers[i]);
             }
-
-            return base.PromptUserInput();
+            UserAnswer = Console.ReadLine();
+            VerifyUserAnswer();
         }
 
         public override bool VerifyUserAnswer()

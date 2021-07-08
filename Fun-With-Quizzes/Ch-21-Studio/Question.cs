@@ -19,22 +19,14 @@ namespace Ch_21_Studio
             QuestionBody = question;
         }
 
-        public virtual string PromptUserInput()
+        public virtual void PromptUserInput() // Prompts user input and verifies user answer against actual answer.
         {
             UserAnswer = Console.ReadLine();
             VerifyUserAnswer();
-            if (VerifyUserAnswer())
-            {
-                Console.WriteLine("Correct!\n");
-            }
-            else
-            {
-                Console.WriteLine("Incorrect.\n");
-            }
-            return UserAnswer;
+            ProvideFeedback(); // MULTIPLE CHOICE IS FAILING WHY
         }
 
-        public virtual bool VerifyUserAnswer()
+        public virtual bool VerifyUserAnswer() // Returns a boolean determining whether or not the user's answer is correct or incorrect.
         {
             if (AnswerIsCorrect)
             {
@@ -45,6 +37,18 @@ namespace Ch_21_Studio
                 AnswerIsCorrect = false;
             }
             return AnswerIsCorrect;
+        }
+
+        public virtual void ProvideFeedback() // Writes whether the user's answer is correct or incorrect.
+        {
+            if (VerifyUserAnswer())
+            {
+                Console.WriteLine("Correct!\n");
+            }
+            else
+            {
+                Console.WriteLine("Incorrect.\n");
+            }
         }
     }
 }

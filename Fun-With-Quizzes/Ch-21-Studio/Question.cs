@@ -8,7 +8,7 @@ namespace Ch_21_Studio
 {
     public abstract class Question
     {
-        public int QuestionNumber { get; set; }
+        // public int QuestionNumber { get; set; }
         public string QuestionBody { get; set; }
         public string UserAnswer { get; set; }
         public bool AnswerIsCorrect { get; set; }
@@ -19,11 +19,11 @@ namespace Ch_21_Studio
             QuestionBody = question;
         }
 
-        public virtual void PromptUserInput() // Prompts user input and verifies user answer against actual answer.
+        public virtual void PromptUserInput()
         {
             UserAnswer = Console.ReadLine();
             VerifyUserAnswer();
-            ProvideFeedback(); // MULTIPLE CHOICE IS FAILING WHY
+            ProvideFeedback();
         }
 
         public virtual bool VerifyUserAnswer() // Returns a boolean determining whether or not the user's answer is correct or incorrect.
